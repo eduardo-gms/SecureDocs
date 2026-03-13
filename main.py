@@ -32,6 +32,7 @@ with open("contratos/contrato.txt", "rb") as f:
 # Fluxo da criptografia simétrica AES para o documento
 # e proteção da chave AES com RSA e OAEP acontecem no envio
 pacote = enviar_contrato(contrato, public_key_B, private_key_A)
+#pacote["doc"] = pacote["doc"] + b"1" #Simulação de alteração do documento para testar a integridade
 
 # Garantia de autenticidade através da assinatura digital RSA com PSS e decifração
 contrato_recuperado = receber_contrato(pacote, private_key_B, public_key_A)
